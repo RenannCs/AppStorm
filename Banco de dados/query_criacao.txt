@@ -1,0 +1,19 @@
+CREATE DATABASE Appstorm;
+USE appstorm;
+
+CREATE TABLE funcionario(
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    cargo VARCHAR(255) NOT NULL,
+    salario DOUBLE NOT NULL
+);
+
+CREATE TABLE 	perfil_funcionario(
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id_funcionario INT NOT NULL,
+    idade INT NOT NULL,
+    endereco VARCHAR(255),
+    telefone VARCHAR(255),
+    
+    FOREIGN KEY (id_funcionario) REFERENCES funcionario(id)
+);

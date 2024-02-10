@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 62, 5%;
+    background-color: #201b2c;
+    color: white;
+}
+
+nav {
+    width: 80vw;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10vw;
+}
+
+.logo {
+    font-size: 2.5rem;
+}
+
+.nav-items {
+    display: flex;
+    list-style: none;
+}
+
+.nav-items>li {
+    padding-left: 2rem;
+}
+
+.nav-items>li>a {
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+}
+
+.container {
+    overflow: auto;
+    height: 60vh;
+    margin: 0 10vw;
+
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.funcionarios-table {
+    width: 100%;
+}
+
+.funcionarios-table th,
+.funcionarios-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ffffff;
+    background-color: #c3acfc00;
+    border-right: 1px solid white;
+    margin: 2rem;
+}
+
+.funcionarios-table th {
+    background-color: #817b95;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+.funcionarios-table tr {
+    background-color: #2f2841;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.funcionarios-table tr:hover {
+    background-color: #817b95;
+}
+
+.funcionarios-table td button {
+
+    border-style: none;
+}
+
+.buttons {
+    width: 20%;
+}
+
+.buttons>button {
+    margin: 0.5rem;
+    cursor: pointer;
+    background-color: #c3acfc00;
+    color: white;
+    transition: 0.3s, transform 0.3s;
+}
+
+.buttons>button:hover {
+    color: #aca7c2;
+}
+
+
+
+/* FORMS STYLES */
+
+
+.form-card {
+    max-width: 30vw;
+    min-height: 70vh;
+    margin: 10vh 35vw;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #2f2841;
+}
+
+.form-card h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: white;
+}
+
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-card .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: .5rem;
+    color: #f0ffffde;
+
+
+}
+
+.form-card .form-group input {
+    width: 100%;
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem;
+    background-color: #514869;
+    color: #f0ffffde;
+    padding: .8rem;
+    box-shadow: 0px 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+    transition: background-color 0.3s, transform 0.3s;
+
+}
+
+.form-card .form-group input:hover {
+    transform: scale(1.1);
+}
+
+.form-group>button {
+    background-color: #00ff88;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 3.5rem;
+    margin: 2rem 0 0 0;
+    border-radius: .5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.form-group>button:hover {
+    background-color: #00ff88;
+}
+
+.back-button {
+    display: flex;
+    justify-content: end;
+}
+
+.back-button>a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-button>a:hover {
+    color: #00ff88;
+}
+
+
+
+/* PROFILE STYLES */
+
+
+
+.profile-card {
+    background-color: #2f2841;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20vh 35vw;
+    min-width: 30vw;
+    min-height: 60vh;
+    box-shadow: 1rem 2rem 1rem #00000056;
+}
+
+.profile-card h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+.profile-card>.back-button {
+    display: flex;
+    padding: 0 3% 5% 0;
+}
+
+.profile-info {
+    display: grid;
+    color: black;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.profile-info-item {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: .5rem;
+    box-shadow: 1rem 2rem 1rem #00000056;
+    transition: background-color 0.5s, transform 0.3s;
+}
+
+.profile-info-item:hover {
+    background-color: rgb(228, 228, 228);
+    transform: scale(1.1);
+}
+
+.profile-info-label {
+    font-weight: bold;
+}
+
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+
+}
+
+
+.btn-container>button {
+    background-color: #00ff88;
+    color: white;
+    border: none;
+    padding: 1rem 10rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-container>button:hover {
+    background-color: #5bf5a3;
+}
+
+.btn-red {
+    background-color: red !important;
+    box-shadow: 0px 10px 40px -12px red;
+}
+
+
+.btn-red:hover {
+    background-color: rgb(255, 49, 49) !important;
+}
+
+
+
+
+/* FOOTER */
+
+footer {
+    background-color: #333; 
+    color: #fff; 
+    padding: 20px; 
+    text-align: center;
+    position: fixed; 
+    width: 100%;
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+
+
+footer a {
+    color: #fff; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+}
+
+
+footer a:hover {
+    color: #00ff88;
+}
+

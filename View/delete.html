@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="../Control/ajax_requests.js"></script>
+    <script src="../Control/userdata_loader.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../Model/style.css">
+    <title>Excluir Funcionário</title>
+</head>
+
+<body>
+    <div class="form-card">
+        <h2>Deseja excluir o seguinte funcionário?</h2>
+        <div class="back-button">
+            <a href="Index.html"><i class="material-icons">arrow_back</i></a>
+        </div>
+        <form action="../Control/delete_funcionario.php" method="post">
+            <div class="form-group">
+                <label for="id">Registro:</label>
+                <input type="number" id="id" name="id" required readonly>
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required disabled>
+            </div>
+            <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <input type="text" id="cargo" name="cargo" required disabled>
+            </div>
+            <div class="form-group">
+                <label for="salario">Salário:</label>
+                <input type="number" id="salario" name="salario" step="0.01" required disabled>
+            </div>
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" required disabled>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required disabled>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required disabled>
+            </div>
+            <div class="form-group">
+                <button class="btn-red" type="submit">Excluir</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var urlParams = new URLSearchParams(window.location.search);
+        var id = urlParams.get('id');
+
+        //Função responsável por requisitar todos os dados do usuário do arquivo get_funcionario.php através de uma PROMISE
+        requestUserDataAjax(id)
+            .then(function (data) {
+
+                //Função responsável por carregar todos os dados do usuário nos inputs do formulário
+                formDataLoader(data);
+
+            });
+    });
+</script>

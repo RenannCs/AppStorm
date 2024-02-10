@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="../Control/ajax_requests.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../Model/style.css">
+    <title>Lista de Funcionários</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Tabela Funcionários</div>
+        <ul class="nav-items">
+            <li><a class="nav-item" href="#">Buscar</a></li>
+            <li><a class="nav-item" href="insert.html">Inserir</a></li>
+            <li><a class="nav-item" href="https://www.linkedin.com/in/renancordeirosanto/">Linkedin</a></li>
+        </ul>
+    </nav>
+
+    <h1>Lista de Funcionários</h1>
+    <div class="container">
+        <table class="funcionarios-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Salário</th>
+                    <th>Detalhes</th>
+                </tr>
+            </thead>
+            <tbody id="funcionarios-list">
+                <!--Dados inseridos de maneira dinâmica-->
+                <!--Dados inseridos de maneira dinâmica-->
+                <!--Dados inseridos de maneira dinâmica-->
+                <!--Dados inseridos de maneira dinâmica-->
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        
+            
+        <p>10/02/2024 - Desenvolvido por <a href="https://www.linkedin.com/in/renancordeirosanto/">Renan Cordeiro Santo</a>. Repositório git: </p>
+        
+    </footer>
+    
+</body>
+
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        //Função responsável por requisitar os dados dos usuários do arquivo get_funcionarios.php através de uma PROMISE
+        requestUsersDataAjax()
+            .then(function (data) {
+
+                var funcionariosTable = document.getElementById('funcionarios-list');
+
+                // Iteração sobre os funcionários criando linhas da tabela com seus respectivos dados
+                data.forEach(funcionario => {
+
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `
+                        <td>${funcionario.nome}</td>
+                        <td>${funcionario.cargo}</td>
+                        <td>R$ ${funcionario.salario}</td>
+                        <td class="buttons">
+                            <button onclick="visualizarPerfil(${funcionario.id})">
+                                <i class="material-icons">visibility</i>  
+                            </button>
+                            <button onclick="editarPerfil(${funcionario.id})">
+                                <i class="material-icons">edit</i> 
+                            </button>
+                            <button onclick="excluirPerfil(${funcionario.id})">
+                                <i class="material-icons">delete</i> 
+                            </button>
+                        </td>
+                    `;
+
+                    funcionariosTable.appendChild(row);
+
+                });
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+
+        responseAlert();
+    });
+
+    function visualizarPerfil(funcionarioId) {
+        window.location.href = `profile.html?id=${funcionarioId}`;
+    }
+    function editarPerfil(funcionarioId) {
+        window.location.href = `update.html?id=${funcionarioId}`;
+    }
+
+    function excluirPerfil(funcionarioId) {
+        window.location.href = `delete.html?id=${funcionarioId}`;
+    };
+
+    //Função responsável por pegar o resultado das operações de CRUD e mostrar ao usuário
+    function responseAlert() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var response = parseInt(urlParams.get('response'));
+
+        switch (response) {
+            case 1:
+                alert('funcionário Deletado com sucesso!');
+                break;
+            case 2:
+                alert('Erro ao deletar funcionário!');
+                break;
+            case 3:
+                alert('Funcionário inserido com sucesso!');
+                break;
+            case 4:
+                alert('Erro ao inserir funcionário!');
+                break;
+            case 5:
+                alert('Funcionário atualizado com sucesso!');
+                break;
+            case 6:
+                alert('Erro ao atualizar funcionário!');
+                break;
+        }
+
+    }
+
+</script>

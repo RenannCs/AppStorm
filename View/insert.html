@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.9/jquery.inputmask.min.js"></script>
+    <script src="../Control/telephone_mask.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../Model/style.css">
+    <title>Inserir Funcionário</title>
+</head>
+
+<body>
+    <div class="form-card">
+        <h2>Inserir Funcionário</h2>
+        <form action="../Control/insert_funcionario.php" method="post">
+            <div class="back-button">
+                <a href="Index.html"><i class="material-icons">arrow_back</i></a>
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required placeholder="Ex: João dos Santos">
+            </div>
+            <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <input type="text" id="cargo" name="cargo" required placeholder="Ex: Front-End Developer">
+            </div>
+            <div class="form-group">
+                <label for="salario">Salário:</label>
+                <input type="number" id="salario" name="salario" step="0.01" required placeholder="Ex: 1700.00">
+            </div>
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" required min="18" max="100" placeholder="Ex: 26">
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required
+                    placeholder="Ex: Rua das Flores, Bairro Jardim Primavera">
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required autocomplete="tel-national"
+                    placeholder="Ex: (00) 12345-6789">
+            </div>
+            <div class="form-group">
+                <button type="submit">Inserir funcionário</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        telephoneMask('telefone');
+
+    });
+</script>
+
+
+
+</html>
