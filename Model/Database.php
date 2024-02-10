@@ -7,7 +7,7 @@ function createConnection(){
     $user = "root";
     $password = "";
     $database = "AppStorm";
-    $porta = "3306";
+    $porta = "3307";
     
     $conn = new mysqli($host, $user, $password, $database, $porta);
     
